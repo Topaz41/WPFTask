@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<employees>
+	<employee>
+		<name>Ivanov Ivan Ivanovich</name>
+		<age>24</age>
+		<position>host</position>
+	</employee>
+	<employee>
+		<name>Petrov Petr Petrovich</name>
+		<age>25</age>
+		<position>semi-host</position>
+	</employee>
+</employees>
