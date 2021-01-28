@@ -40,7 +40,9 @@ namespace Task
             Employees empl = (Employees)this.Resources["empl"];
             emp.Name = Name.Text;
             emp.Age = Convert.ToInt32(Age.Text);
-            emp.Position = (Position)Enum.Parse(typeof(Position), Position.Text, true);
+            Position p;
+            if(Enum.TryParse(Position.Text, out p))
+                emp.Position = p;
             emp.Experience = Convert.ToDouble(Experience.Text.Replace('.', ','));
             emp.Retiree = Convert.ToBoolean(Retiree.Text);
             Close();
