@@ -1,17 +1,76 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Data;
 
 namespace Task
 {
-    public class Employees
+    public class Employees: INotifyPropertyChanged
     {
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public Enum Position { get; set; }
-        public double Experience { get; set; }
-        public bool Retiree { get; set; }
+        private string name;
+        private int age;
+        private Enum position;
+        private double experience;
+        private bool retiree;
+
+        public string Name
+        {
+            get { return name; } 
+            set 
+            {
+                name = value;
+                OnPropertyChanged("Name");
+            }
+        }
+
+        public int Age
+        {
+            get { return age; }
+            set
+            {
+                age = value;
+                OnPropertyChanged("Age");
+            }
+        }
+
+        public Enum Position
+        {
+            get { return position; }
+            set
+            {
+                position = value;
+                OnPropertyChanged("Position");
+            }
+        }
+
+        public double Experience
+        {
+            get { return experience; }
+            set
+            {
+                experience = value;
+                OnPropertyChanged("Experience");
+            }
+        }
+
+        public bool Retiree
+        {
+            get { return retiree; }
+            set
+            {
+                retiree = value;
+                OnPropertyChanged("Retiree");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
     }
 }

@@ -15,13 +15,16 @@
             <MenuItem Header="LoadXML" Click="btnLoadXML_Click"></MenuItem>
             <MenuItem Header="SaveXML" Click="btnSaveXML_Click"></MenuItem>
         </Menu>
+        <Button DockPanel.Dock="Bottom" Click="btnAddRecord_Click">Add Element</Button>
+        <Button DockPanel.Dock="Bottom" Click="btnEditRecord_Click">Edit Element</Button>
         <Button DockPanel.Dock="Bottom" Click="btnDeleteRecord_Click">Delete Element</Button>
-        <ListView  Name="ListView">
+        
+        <ListView Name="ListView">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Name, Mode=TwoWay}">Name</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Age,Mode=TwoWay}">Age</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Converter={StaticResource myEnumConverter}}">Position</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path =Position, Converter={StaticResource myEnumConverter}}">Position</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Experience,Mode=TwoWay}">Experience</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Retiree,Mode=TwoWay}">Retiree</GridViewColumn>
                 </GridView>

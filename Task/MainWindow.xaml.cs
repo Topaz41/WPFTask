@@ -50,6 +50,28 @@ namespace Task
                 MessageBox.Show("Please select element");
         }
 
+        private void btnAddRecord_Click(object sender, RoutedEventArgs e)
+        {
+            AddElementWindow ew = new AddElementWindow();
+            ew.ListView = ListView;
+            ew.Owner = this;
+            ew.Show();
+        }
+
+        private void btnEditRecord_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListView.SelectedItem != null)
+            {
+                EditElementWindow ew = new EditElementWindow();
+                ew.emp = (Employees)ListView.SelectedItem;
+                ew.loadEmployees();
+                ew.Owner = this;
+                ew.Show();
+            }
+            else
+                MessageBox.Show("Please select element");
+        }
+
         private void btnSaveXML_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();

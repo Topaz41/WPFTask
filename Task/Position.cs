@@ -19,8 +19,7 @@ namespace Task
     {
         object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var enumVal = ((Employees)value).Position;
-            switch (enumVal)
+            switch (value)
             {
                 case Position.JuniorEmployee: return "Junior";
                 case Position.MiddleEmployee: return "Middle";
